@@ -50,7 +50,11 @@ Convolutional Neural Networks (CNNs) have become very significant in deep learni
 One of the audio-related tasks is Speech recognition that Re- current Neural Networks (RNNs) have successfully completed [citation]. They use sound’s tendency to maintain sequen- tial across time. Convolutional Recurrent Neural Networks (CRNNs), which combine a recurrent unit to summarize the time frame after 2D convolution, outperformed four com- monly used audio classification architectures in terms of genre classification performance, according to a follow-up study by Choi et al. [citation]. In this work, we modify the CRNN model to develop an effective deep learning strategy for singer classification.
 
 ## Method
-#### Audio Processing  
+#### Audio Processing
+<p align="center">
+  <img src="https://raw.githubusercontent.com/your-username/your-repo/main/path/to/your/image.jpg" alt="Description of the image">
+</p>
+
 To generate spectrograms, a short-time Fourier transform is applied to the raw audio input for each song. The frequency scale (f hertz) is constructed, then translated into the Mel scale 2 (m mels) using Eq. (2) and scaled (d decibels) using Eq. (3). These processes are considered common methods in audio processing and have been shown in previous work to increase classification job performance.
 
 [![Equation 2](https://latex.codecogs.com/svg.latex?m%20=%202595%20\log_{10}\left(1%20+%20\frac{f}{700}\right))](https://www.codecogs.com/latex/eqneditor.php)
