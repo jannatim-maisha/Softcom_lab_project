@@ -51,15 +51,15 @@ One of the audio-related tasks is Speech recognition that Re- current Neural Net
 
 ## Method
 #### Audio Processing
-<p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/your-repo/main/path/to/your/image.jpg" alt="Description of the image">
-</p>
-
 To generate spectrograms, a short-time Fourier transform is applied to the raw audio input for each song. The frequency scale (f hertz) is constructed, then translated into the Mel scale 2 (m mels) using Eq. (2) and scaled (d decibels) using Eq. (3). These processes are considered common methods in audio processing and have been shown in previous work to increase classification job performance.
 
 [![Equation 2](https://latex.codecogs.com/svg.latex?m%20=%202595%20\log_{10}\left(1%20+%20\frac{f}{700}\right))](https://www.codecogs.com/latex/eqneditor.php)
 
 [![Equation 3](https://latex.codecogs.com/svg.latex?d%20=%2010%20\log_{10}\left(\frac{m}{r}\right))](https://www.codecogs.com/latex/eqneditor.php)
+
+<p align="center">
+  <img src="spectrograms.png" alt="Description of the image">
+</p>
 
 #### Model Architecture and Design  
 In our artist classification experiments, we aim to replace traditional MFCC-based approaches with high-dimensional spectrograms. We adopt the CRNN architecture from prior work in genre classification, expecting it to perform well for artist classification due to its ability to capture frequency content changes over time. The CRNN architecture effectively combines convolutional layers for capturing frequency pat- terns and recurrent layers for handling temporal sequences within these patterns. The architecture comprises three stages: convolutional, recurrent, and fully-connected. We use the Exponential Linear Unit (ELU) activation function as a smooth alternative to Rectified Linear Unit (RELU) for better gener- alization. Batch normalization and dropout are included for regularization and improved generalization, following prac- tices in image classification. Pooling and stride parameters are chosen to fully characterize the 128-bin frequency axis and summarize the sequence length entering the recurrent layer. The recurrent component, employing Gated Recurrent Units (GRUs), acts as a form of temporal summarization, replacing the need for explicit temporal pooling. GRUs are preferred over Long Short-Term Memory (LSTM) cells due to their efficiency in terms of parameters and comparable performance. The final fully-connected layer utilizes a softmax activation to assign probabilities to each class, completing the model’s architecture.
